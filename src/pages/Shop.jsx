@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Shop = () => {
-    const { products, addToCart } = useContext(AppContext);
+    const { products, addToCart, BASE_URL } = useContext(AppContext);
     const [filter, setFilter] = React.useState('All');
 
     const filteredProducts = filter === 'All' 
@@ -41,7 +41,7 @@ const Shop = () => {
                         <div className="product-card" key={product._id || product.id}>
                             <div className="product-img-wrapper">
                                 <img 
-                                    src={product.image.startsWith('http') ? product.image : `http://localhost:5000${product.image}`} 
+                                    src={product.image.startsWith('http') ? product.image : `${BASE_URL}${product.image}`} 
                                     alt={product.name} 
                                     className="product-img" 
                                 />

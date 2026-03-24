@@ -14,7 +14,8 @@ export const AppProvider = ({ children }) => {
         return saved ? JSON.parse(saved) : null;
     });
 
-    const API_URL = 'http://localhost:5000/api';
+    const BASE_URL = 'https://e-commerce-backend--mhsoftwarehouse.replit.app';
+    const API_URL = `${BASE_URL}/api`;
 
     // Persist cart
     useEffect(() => {
@@ -160,7 +161,8 @@ export const AppProvider = ({ children }) => {
         <AppContext.Provider value={{ 
             products, addProduct, deleteProduct, toggleFeatured, 
             currentUser, login, signup, logout, setCurrentUser, updateProfile, uploadImage,
-            cartItems, addToCart, removeFromCart, clearCart, placeOrder, updateCartQty
+            cartItems, addToCart, removeFromCart, clearCart, placeOrder, updateCartQty,
+            BASE_URL
         }}>
             {children}
         </AppContext.Provider>

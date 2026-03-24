@@ -4,7 +4,7 @@ import { Trash2, Edit, Star, LayoutDashboard, User as UserIcon, LogOut, PackageP
 import { useNavigate } from 'react-router-dom';
 
 const Account = () => {
-    const { currentUser, products, addProduct, deleteProduct, toggleFeatured, updateProfile, uploadImage, logout } = useContext(AppContext);
+    const { currentUser, products, addProduct, deleteProduct, toggleFeatured, updateProfile, uploadImage, logout, BASE_URL } = useContext(AppContext);
     const navigate = useNavigate();
     
     const [name, setName] = useState(currentUser?.name || '');
@@ -129,7 +129,7 @@ const Account = () => {
                                     {products.map(p => (
                                         <div key={p._id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>
                                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                                                <img src={p.image.startsWith('http') ? p.image : `http://localhost:5000${p.image}`} style={{ width: '50px', height: '60px', objectFit: 'cover', borderRadius: '4px' }} alt="" />
+                                                <img src={p.image.startsWith('http') ? p.image : `${BASE_URL}${p.image}`} style={{ width: '50px', height: '60px', objectFit: 'cover', borderRadius: '4px' }} alt="" />
                                                 <div>
                                                     <div style={{ fontWeight: 600 }}>{p.name}</div>
                                                     <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>${p.price.toFixed(2)}</div>

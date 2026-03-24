@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 import { Trash2, ShoppingBag, CreditCard, Plus, Minus } from 'lucide-react';
 
 const Cart = () => {
-    const { cartItems, removeFromCart, placeOrder, currentUser, updateCartQty } = useContext(AppContext);
+    const { cartItems, removeFromCart, placeOrder, currentUser, updateCartQty, BASE_URL } = useContext(AppContext);
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [postalCode, setPostalCode] = useState('');
@@ -60,7 +60,7 @@ const Cart = () => {
                             <div key={item._id} className="cart-item" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '1.5rem 0', borderBottom: '1px solid var(--border-color)' }}>
                                 <div className="cart-item-img-container" style={{ width: '100px', height: '120px', backgroundColor: '#F0F0F0', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
                                     <img 
-                                        src={item.image.startsWith('http') ? item.image : `http://localhost:5000${item.image}`} 
+                                        src={item.image.startsWith('http') ? item.image : `${BASE_URL}${item.image}`} 
                                         alt={item.name} 
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                                     />
