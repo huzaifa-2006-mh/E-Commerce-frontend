@@ -64,7 +64,7 @@ const Account = () => {
                     <div style={{ background: 'var(--card-bg)', padding: '2rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)', textAlign: 'center' }}>
                         <div style={{ position: 'relative', display: 'inline-block', marginBottom: '1.5rem' }}>
                             <img 
-                                src={profilePic || 'https://images.unsplash.com/photo-1560250097-0b93528c311a'} 
+                                src={profilePic ? (profilePic.startsWith('http') ? profilePic : `${BASE_URL}${profilePic}`) : 'https://images.unsplash.com/photo-1560250097-0b93528c311a'} 
                                 alt="Profile" 
                                 style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', border: '4px solid var(--accent-color)' }} 
                             />
